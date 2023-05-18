@@ -6,8 +6,11 @@ import { transfer_approval } from "./transfer_approval.js";
 import { transfer_cancellation } from "./transfer_cancellation.js";
 import { transfer_demand } from "./transfer_demand.js";
 import { readmission_transfer_demand } from "./readmission_transfer_demand.js";
+import { readmission_transfer_approval } from "./readmission_transfer_approval.js";
+import { readmission_demand } from "./readmission_demand.js";
+
 let header = {
-  type : "readmission_transfer_demand",
+  type : "readmission_demand",
   letter_no : 'ODD/UG/UG(PT)/PG - TR,RCT/SA2-2/2022-2023',
   date : '09.09.2022',
   to : ["The Dean of Constituent Colleges / Regional Campus /","The Principal of Government / Government Aided / Self-Financing / ","Autonomous Engineering Colleges (Annexure enclosed)."],   // to array
@@ -17,7 +20,8 @@ let header = {
   no_of_students : 50,
   copy_to :["The Controller of Examinations, Anna University Chennai – 25","Stock file"],
   odd_or_even : "ODD",
-  amount : "2000"
+  amount : "2000",
+  deadline_date : "23.04.2023"
 }
 
 async function read_const(){
@@ -46,6 +50,10 @@ else if(header.type === 'transfer_demand')
  await transfer_demand(doc,header,constants)
 else if(header.type === 'readmission_transfer_demand')
  await readmission_transfer_demand(doc,header,constants,rows)
+else if(header.type === 'readmission_transfer_approval')
+ await readmission_transfer_approval(doc,header,constants,rows)
+ else if(header.type === 'readmission_demand')
+  await readmission_demand(doc,header,constants,rows)
 
 doc.end()
 

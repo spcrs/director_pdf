@@ -42,7 +42,7 @@ export const readmission_transfer_demand = async (doc,header,constants,rows) =>{
     .fontSize(12)
     .text(`In this regard, you are requested to instruct the students to remit the fee through ‘Demand Draft’ drawn in favour of `,50,y+200,{indent:30,continued:true})
     .font('font_family/Arial_Bold.TTF')
-    .text(`“The Director, Centre for Student Affairs,  Anna University, Chennai, on or before ${header.date}".`)  
+    .text(`“The Director, Centre for Student Affairs,  Anna University, Chennai, on or before ${header.deadline_date}".`)  
   
   [x,y] = [doc.x,doc.y]
   doc.font('font_family/arial.TTF')
