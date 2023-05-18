@@ -5,9 +5,9 @@ import { common_header } from "./common_header.js";
 import { transfer_approval } from "./transfer_approval.js";
 import { transfer_cancellation } from "./transfer_cancellation.js";
 import { transfer_demand } from "./transfer_demand.js";
-import { readmission_transfer_cancellation } from "./readmission_transfer_approval.js";
+import { readmission_transfer_demand } from "./readmission_transfer_demand.js";
 let header = {
-  type : "readmission_transfer_cancellation",
+  type : "readmission_transfer_demand",
   letter_no : 'ODD/UG/UG(PT)/PG - TR,RCT/SA2-2/2022-2023',
   date : '09.09.2022',
   to : ["The Dean of Constituent Colleges / Regional Campus /","The Principal of Government / Government Aided / Self-Financing / ","Autonomous Engineering Colleges (Annexure enclosed)."],   // to array
@@ -44,8 +44,8 @@ else if(header.type === 'transfer_cancellation')
  await transfer_cancellation(doc,header,constants)
 else if(header.type === 'transfer_demand')
  await transfer_demand(doc,header,constants)
-else if(header.type === 'readmission_transfer_cancellation')
- await readmission_transfer_cancellation(doc,header,constants,rows)
+else if(header.type === 'readmission_transfer_demand')
+ await readmission_transfer_demand(doc,header,constants,rows)
 
 doc.end()
 

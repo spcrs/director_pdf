@@ -4,7 +4,7 @@ import PDFDocument from "pdfkit-table";
 
 
 
-export const readmission_transfer_cancellation = async (doc,header,constants,rows) =>{
+export const readmission_transfer_demand = async (doc,header,constants,rows) =>{
 
   const datas = [{options: { fontSize: 16, separation: true},no : "1",name : "Transfer",amount : constants.transfer_amount},{options: { fontSize: 16, separation: true},no : "2",name : "Transfer cum Readmission",amount : constants.transfer_readmission_amount}]
 
